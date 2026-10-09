@@ -1,0 +1,48 @@
+<div class="cart-container">
+
+    <h2>MY CART</h2>
+
+    @if(cart.length === 0) {
+        <h3> Your cart is empty </h3>
+    }
+
+    @for(item of cart; track $index) {
+
+        <div class="cart-item">
+
+            <img [src]=" 'http://localhost:9000/uploads/'+ item.productId.image">
+
+            <div>
+
+                <h3> {{item.productId.productname}} </h3>
+
+                <p> {{item.productId.category}} - {{item.productId.subcategory}} </p>
+
+                <h3> ₹{{item.productId.price}} </h3>
+
+                <p> Quantity: {{item.quantity}} </p>
+
+                <p> Subtotal: ₹{{item.productId.price * item.quantity}} </p>
+
+                <button
+                mat-raised-button
+                (click)="removeItem(item.productId._id)"
+                >
+                    REMOVE
+                </button>
+
+            </div>
+        </div>
+    }
+
+    @if(cart.length > 0) {
+
+        <hr>
+
+        <h2> Total: ₹{{getTotal()}} </h2>
+
+        <button mat-raised-button> CHECKOUT </button>
+
+    }
+
+</div>

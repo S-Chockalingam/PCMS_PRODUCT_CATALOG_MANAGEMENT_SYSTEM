@@ -1,0 +1,150 @@
+<div class="shop-container">
+
+    <h2 class="head"> TEXTILE STORE </h2>
+
+    <div class="filters">
+
+        <select [(ngModel)]="choose" (change)="filter()">
+
+            <option value="all"> ALL </option>
+            <option value="men"> MEN </option>
+            <option value="women"> WOMEN </option>
+            <option value="kids"> KIDS </option>
+
+        </select>
+
+
+        <button 
+        (click)="asc()"
+        class="button-css"       
+        >
+            PRICE LOW → HIGH
+        </button>
+
+
+        <button 
+        (click)="desc()"
+        class="button-css" 
+        >
+            PRICE HIGH → LOW
+        </button>
+
+
+        @if(role === "admin") {
+
+            <button
+                mat-raised-button
+                (click)="openDialog()"
+            >
+                ADD PRODUCT
+            </button>
+
+        }
+
+    </div>
+
+
+    @if(role === "admin") {
+
+        <table>
+            <thead>
+
+                <tr>
+
+                    <th>IMAGE</th>
+                    <th>PRODUCT</th>
+                    <th>CATEGORY</th>
+                    <th>PRICE</th>
+                    <th>STOCK</th>
+                    <th>BRAND</th>
+                    <th>EDIT</th>
+                    <th>DELETE</th>
+
+                </tr>
+            </thead>
+
+
+            <tbody>
+                <tr *ngFor="let product of choosedData" >
+
+                    <td>
+                        <img [src]=" 'http://localhost:9000/uploads/' + product.image"
+                            width="80" height="80">
+                    </td>
+                    <td> {{product.productname}} </td>
+                    <td> {{product.category}} - {{product.subcategory}}</td>
+                    <td> ₹{{product.price}} </td>
+                    <td> {{product.stockquantity}} </td>
+                    <td> {{product.brand}} </td>
+
+                    <td>
+                        <button
+                            mat-raised-button
+                            (click)="editProduct(product)"
+                        >
+                            EDIT
+                        </button>
+                    </td>
+
+
+                    <td>
+                        <button
+                            mat-raised-button
+                            (click)="deleteProduct(product._id)"
+                        >
+                            DELETE
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+
+
+    @if(role === "user") {
+
+        <div class="products">
+
+            <div
+                class="product-card"
+                *ngFor="let product of choosedData"
+            >
+
+                <img [src]=" 'http://localhost:9000/uploads/' + product.image "
+                    class="product-image"
+                >
+                <h3> {{product.productname}} </h3>
+                <p> {{product.brand}} </p>
+                <p>{{product.category}} - {{product.subcategory}} </p>
+                <h3> ₹{{product.price}} </h3>
+                <p
+                [ngStyle]="{
+                    color: product.availability === 'instock' ? 'green' :
+                        product.availability === 'outofstock' ? 'red' : 'black'
+                }"
+                >
+                {{ product.availability }}
+                </p>
+
+
+                <button
+                    class="user-button"
+                    [disabled]="product.stockquantity === 0"
+                    (click)="addToCart(product)"
+                >
+                    ADD TO CART
+                </button>
+
+
+                <button
+                    class="user-buttons"
+                    [disabled]="product.stockquantity === 0"
+                    (click)="openBuyComponent(product)"
+                >
+                    BUY NOW
+                </button>
+
+            </div>
+        </div>
+    }
+</div>

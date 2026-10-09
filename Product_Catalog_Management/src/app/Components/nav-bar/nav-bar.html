@@ -1,0 +1,66 @@
+<mat-toolbar style="background-color: rgba(129, 113, 173, 0.932); ">
+
+    <div 
+    style="color: rgb(10, 235, 78);
+    font-family: cursive;
+    ">
+        MINUTES - BAZAAR 
+    </div>
+    
+    <div style="margin-left: auto;">
+
+        @if(token){
+            <button
+                mat-raised-button
+                style="color: rgb(75, 7, 75); 
+                background-color: rgb(216, 184, 216);
+                margin-right: 10px;"
+                (click)="logout()"
+                >
+                    LOGOUT 
+            </button>
+        }
+
+    </div>
+
+    <button
+    mat-raised-button
+    routerLink="/cart"
+    style="color:rgb(75, 7, 75); 
+    background-color :rgb(216, 184, 216); "
+    >
+
+    🛒🛒CART
+
+    @if(cartCount > 0) {
+
+        <span
+            style="
+                background-color: red;
+                color: white;
+                border-radius: 50%;
+                padding: 3px 7px;
+                margin-left: 5px;
+                font-size: 12px;
+            "
+        >
+            {{cartCount}}
+        </span>
+
+    }
+
+    </button>
+
+    <button
+    mat-raised-button
+    routerLink="/purchase-history"
+    style="
+        color: rgb(75, 7, 75);
+        background-color :rgb(216, 184, 216);
+        margin-left: 20px;
+        "
+    >
+        📦 MY ORDERS
+    </button>
+
+</mat-toolbar>

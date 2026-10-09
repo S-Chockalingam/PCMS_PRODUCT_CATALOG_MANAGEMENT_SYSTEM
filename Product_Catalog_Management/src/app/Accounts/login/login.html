@@ -1,0 +1,50 @@
+<div class="outerDiv">
+
+    <div class="innerDiv">
+
+        <form [formGroup] = "formg" class="Form">
+
+            <h3> LOGIN </h3>
+
+            <mat-form-field class="inputFields">
+                <mat-label> EMAIL : </mat-label>
+                <input
+                type="email"
+                matInput
+                placeholder="enter the email : "
+                formControlName="email"
+                />
+                <mat-error *ngIf="formg.controls['email'].errors?.['required']">
+                    Email is required
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="inputFields">
+                <mat-label> PASSWORD : </mat-label>
+                <input
+                matInput
+                type="password"
+                placeholder="enter your password"
+                formControlName = "password"
+                />
+                <mat-error *ngIf="formg.controls['password'].errors?.['required']">
+                    Password is required
+                </mat-error>
+            </mat-form-field>
+
+            <button
+            class="loginButton"
+            (click)="login()"
+            mat-raised-button
+            >
+                LOGIN
+            </button>
+
+            <h3> DON'T HAVE ACCOUNT......<span> <a routerLink="/" style="color: rgb(9, 94, 65);"> SIGNUP </a> </span></h3>
+
+        </form>
+
+    </div>
+
+</div>

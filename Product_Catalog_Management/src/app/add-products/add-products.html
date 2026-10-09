@@ -1,0 +1,142 @@
+<div class="outerDiv">
+
+    <div class="innerDiv">
+
+        <form class="Form" [formGroup] = "formg">
+
+            @if(!isEdit){
+                <h3> ADD PRODUCT </h3>
+            }
+            @if(isEdit){
+                <h3> EDIT PRODUCTS </h3>
+            }
+
+            <mat-form-field class="inputFields">
+                <mat-label> PRODUCT NAME : </mat-label>
+                <input
+                matInput
+                placeholder="enter the prodcut name : "
+                formControlName="productname"
+                />
+            </mat-form-field> 
+
+            <mat-form-field class="inputFields">
+                <mat-label> DESCRIPTION : </mat-label>
+                <textarea
+                matInput
+                placeholder="enter the product description : "
+                formControlName = "description">
+                </textarea>
+            </mat-form-field>
+
+            <mat-form-field class="inputFields">
+                <mat-label> CATEGORY : </mat-label>
+                <mat-select 
+                placeholder="choose any one item"
+                formControlName="category"
+                >
+                    <mat-option value="men"> MEN </mat-option>
+                    <mat-option value="women"> WOMEN </mat-option>
+                    <mat-option value="kids"> KIDS </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="inputFields">
+                <mat-label>SUBCATEGORY</mat-label>
+                <mat-select formControlName="subcategory">
+                    <mat-option value="shirts">
+                        SHIRTS
+                    </mat-option>
+                    <mat-option value="tshirts">
+                        T-SHIRTS
+                    </mat-option>
+                    <mat-option value="kurtis">
+                        KURTIS
+                    </mat-option>
+                    <mat-option value="sarees">
+                        SAREES
+                    </mat-option>
+                    <mat-option value="boys">
+                        BOYS
+                    </mat-option>
+                    <mat-option value="girls">
+                        GIRLS
+                    </mat-option>
+                </mat-select>
+
+            </mat-form-field>
+
+            <mat-form-field class="inputFields">
+                <mat-label> PRICE : </mat-label>
+                <input
+                matInput
+                type="number"
+                placeholder="enter the product price : "
+                formControlName = "price"
+                />
+            </mat-form-field>
+ 
+            <mat-form-field class="inputFields">
+                <mat-label> STOCK QUANTITY : </mat-label>
+                <input
+                matInput
+                type="number"
+                placeholder="enter the stock quantity : "
+                formControlName = "stockquantity"
+                />
+            </mat-form-field>
+
+            <mat-form-field class="inputFields">
+                <mat-label> BRAND : </mat-label>
+                <input
+                matInput
+                placeholder="entet the brand name : "
+                formControlName= "brand"
+                />
+            </mat-form-field>
+
+             <div class="imageField">
+                <label>PRODUCT IMAGE</label>
+                <input
+                    type="file"
+                    accept="image/*"
+                    (change)="selectImage($event)"
+                />
+            </div>
+
+
+            <mat-form-field class="inputFields">
+                <mat-label> AVAILABILITY : </mat-label>
+                <mat-select
+                formControlName="availability"
+                placeholder = "choose the availability : ">
+                    <mat-option value="instock"> IN-STOCK </mat-option>
+                    <mat-option value="outofstock"> OUT-OF-STOCK </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            @if(!isEdit){
+                <button
+                (click) = "addProducts()"
+                class="loginButton"
+                [disabled]="formg.invalid"
+                mat-raised-button
+                >
+                    ADD PRODUCTS
+                </button>
+            }       
+
+            @if(isEdit){
+                <button
+                mat-raised-button
+                (click)="updateProducts()"
+                class="loginButton"
+                [disabled]="formg.invalid">
+                    EDIT PRODUCTS
+                </button>  
+            }
+            
+            
+        </form>
+    </div>
+</div>

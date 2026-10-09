@@ -1,0 +1,32 @@
+.outerDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.innerDiv{
+    margin-top: 100px;
+}
+
+.Form{
+    width: 500px;
+}
+
+.inputFields{
+    width: 400px;
+}
+
+.loginButton{
+    width: 400px;
+    color: wheat !important;
+    background-color: rgb(3, 3, 66) !important;
+}
+
+.Form {
+    width: 500px;
+    padding: 30px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: white;
+}

@@ -1,0 +1,25 @@
+.outerDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.innerDiv{
+    margin-top: 100px;
+}
+
+.Form{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputFields{
+    width: 400px;
+}
+
+.loginButton{
+    width: 400px;
+    color: greenyellow !important;
+    background-color: rgba(15, 41, 114, 0.986) !important;
+}

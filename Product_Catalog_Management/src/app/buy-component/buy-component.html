@@ -1,0 +1,33 @@
+<mat-radio-group [(ngModel)] = "paymentMethod">
+    <mat-radio-button value="upi"> UPI </mat-radio-button>
+
+    <mat-radio-button value="cod"> COD </mat-radio-button>
+</mat-radio-group>
+
+<div style="margin-left: 20px;">
+    
+@if(paymentMethod === "upi"){
+    <img src="scanner.jpeg" height="300" width="300"/>
+}
+
+
+<h2> PRODUCT : {{data.productname}} </h2>
+
+<h2> PRICE : {{data.price}} </h2>
+
+@if(purchasequantity > 0){
+    <h2> SELECTED QUANTITY TOTAL PRICE : {{data.price*purchasequantity}}</h2>
+}
+
+<h2> STOCK REMAINING : {{data.stockquantity}} </h2>
+
+<input type="number" placeholder="enter the quantity : " [(ngModel)] = "purchasequantity"/>
+</div>
+
+<button
+mat-raised-button
+(click)="Check()"
+class="buybutton"
+>
+    PURCHASE
+</button>

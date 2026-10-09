@@ -1,0 +1,31 @@
+<div class="history-container">
+
+    <h2>MY PURCHASE HISTORY</h2>
+
+    @if(history.length === 0) {
+        <h3> No purchases yet </h3>
+    }
+
+    @for(item of history; track $index) {
+
+        <div class="history-item">
+
+            <img [src]=" 'http://localhost:9000/uploads/' + item.productId.image">
+            <div>
+
+                <h3> {{item.productId.productname}} </h3>
+
+                <p> Category: {{item.productId.category}} </p>
+
+                <p> Quantity : {{item.quantity}} </p>
+
+                <p> Price: ₹{{item.price}} </p>
+
+                <h3> Total: ₹{{getTotal(item)}} </h3>
+                
+                <p> Purchased: {{item.purchasedAt | date:'dd-MM-yyyy'}} </p>
+
+            </div>
+        </div>
+    }
+</div>

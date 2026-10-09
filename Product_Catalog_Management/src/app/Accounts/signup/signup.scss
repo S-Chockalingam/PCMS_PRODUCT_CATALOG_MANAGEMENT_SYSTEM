@@ -1,0 +1,32 @@
+.outerDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.innerDiv{
+    margin-top: 100px;
+}
+
+.form {
+    width: 600px;
+    padding: 30px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: white;   
+}
+
+.signupText{
+    color: brown;
+}
+
+.singleField{
+    width: 400px;
+}
+
+.button{
+    width: 400px;
+    background-color: cadetblue !important;
+    color: brown !important;
+}

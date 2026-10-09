@@ -1,0 +1,48 @@
+<div class="outerDiv">
+    <div class="innerDiv">
+        <form [formGroup] = "formg" class="form">
+            <h2 class="signupText"> SIGNUP </h2>
+
+            <mat-form-field class="singleField">
+                <mat-label> NAME : </mat-label>
+                <input
+                matInput
+                type="text"
+                placeholder="enter your name : "
+                formControlName = "name"
+                />
+            </mat-form-field>
+
+            <mat-form-field class="singleField">
+                <mat-label> EMAIL : </mat-label>
+                <input
+                matInput
+                type="email"
+                placeholder="enter your email : "
+                formControlName = "email"
+                />
+            </mat-form-field>
+
+            <mat-form-field class="singleField">
+                <mat-label> PASSWORD : </mat-label>
+                <input
+                matInput
+                type="password"
+                placeholder="enter your password : "
+                formControlName = "password"
+                />
+            </mat-form-field>
+            
+            <button
+            class="button"
+            [disabled] = "formg.invalid"
+            mat-raised-button
+            (click)="signup()"
+            >
+                SIGNUP
+            </button>
+
+            <h3> ALREADY REGISTERED......<span style="color: darkblue;"> <a routerLink="/login"> LOGIN </a> </span></h3>
+        </form>
+    </div>
+</div>
